@@ -1,0 +1,36 @@
+﻿@model SignUp.Models.WebForm1
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem
+    {
+        Text = "Pakistan",
+        Value = "Pakistan"
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "China",
+        Value = "China"
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "India",
+        Value = "India"
+    });
+
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@enctype = "mutipart/form-data"}))
+{
+    @Html.TextBoxFor(x => x.uname)
+    @Html.TextBoxFor(x => x.pwd, new {@type = "Password" })
+    @Html.DropDownListFor(x=>x.Country,list,"select country")
+    <input type="file" name="file"/>
+    <input type="submit" name="sub" />
+
+
+}
+
